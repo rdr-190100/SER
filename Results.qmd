@@ -1,0 +1,154 @@
+---
+title: SER Report
+format: 
+  html:
+    embed-resources: true
+    self-contained: true
+    preview-links: auto
+    page-layout: full
+    toc: false
+    code-tools: false
+    
+bibliography: bibliography.bib
+---
+
+**_Abstract_** The human voice is very flexible and has manyfeelings behind it. Through voice, emotion brings extra insight into human behavior. By more research we can better appreciate people’s motivations, whether they are frustrated customers or cheering fans. Human beings can easily evaluate a speaker’s emotion, but the field of emotion detection through machine learning is an open area of study. We conduct speech data analysis on speech classified speech signals in this proposed project to identify the feelings of the individual speakers participating in the conversation. To find efficient algorithms for performing this function, we are testing various techniques to perform speaker discrimination and speech analysis.
+
+## I. INTRODUCTION
+Speech and emotion recognition are two closely intertwined processes. Emotion recognition refers to the ability to identify and interpret the emotional content of a message or expression, while speech is the medium through which emotions are often expressed. The relationship between speech and emotion recognition is complex and multidimensional, and has been the subject of extensive research in the fields of psychology, neuroscience, and computer science. Speech is a rich source of emotional information, as it contains a range of cues that can be used to infer the speaker's emotional state. These cues include prosody (e.g., intonation, pitch, and rhythm), voice quality (e.g., breathiness, roughness, and tension), and lexical content (e.g., choice of words and expressions). By analyzing these cues, listeners can identify the speaker's emotional state with a high degree of accuracy.
+
+The recognition of emotions in speech is a crucial aspect of social communication, as it allows us to understand the feelings and intentions of others, and to respond appropriately to social situations. For example, the ability to recognize anger in someone's speech can help us to avoid conflict, while the ability to recognize happiness can facilitate social bonding. Research has shown that emotion recognition in speech is a complex process that involves both bottom-up and top-down processing. Bottom-up processing refers to the analysis of acoustic cues in speech, such as the frequency and amplitude of sound waves, while top-down processing refers to the use of contextual information, such as knowledge about the speaker and the situation, to interpret emotional cues.
+
+One of the challenges of emotion recognition in speech is the fact that emotional cues are often subtle and context-dependent. For example, the same intonation pattern may convey different emotions depending on the words that are being spoken and the context in which they are being spoken. This means that emotion recognition in speech requires a sophisticated and flexible cognitive system that is able to integrate multiple sources of information. Despite these challenges, researchers have made significant progress in developing methods for automated emotion recognition in speech. These methods typically use machine learning algorithms to analyze acoustic features of speech, such as the frequency and duration of specific sound units (e.g., vowels and consonants), and to classify these features into different emotional categories (e.g., happiness, sadness, anger, fear).
+
+One approach to automated emotion recognition in speech is to use a database of labeled speech samples to train a machine learning model to recognize emotional cues. The model can then be applied to new speech samples to classify their emotional content. This approach has been used in a variety of applications, including speech-based virtual assistants, emotion detection in call centers, and voice-based lie detection. Another approach to automated emotion recognition in speech is to use deep learning algorithms, such as convolutional neural networks (CNNs) and recurrent neural networks (RNNs), to analyze the acoustic features of speech. These algorithms are able to learn complex patterns in the data, and can achieve high levels of accuracy in emotion recognition tasks.
+
+Overall, the relationship between speech and emotion recognition is complex and multifaceted. Speech is a rich source of emotional information, and emotion recognition in speech is a crucial aspect of social communication. Researchers have made significant progress in developing methods for automated emotion recognition in speech, and this technology has the potential to revolutionize a wide range of applications, from speech-based virtual assistants to emotion detection in call centers.
+
+## II. BACKGROUND [@Schuller]
+Communication with computing machinery has become increasingly 'chatty' these days: Alexa, Cortana, Siri, and many more dialogue systems have hit the consumer market on a broader basis than ever, but do any of them truly notice our emotions and react to them like a human conversational partner would? In fact, the discipline of automatically recognizing human emotion and affective states from speech, usually referred to as Speech Emotion Recognition or SER for short, has by now surpassed the "age of majority," celebrating the 22nd anniversary after the seminal work of Daellert et al. in 1996—arguably the first research paper on the topic. However, the idea has existed even longer, as the first patent dates back to the late 1970s.[@Williamson]
+
+Previously, a series of studies rooted in psychology rather than in computer science investigated the role of acoustics of human emotion. Blanton [@Blanton], for example, wrote that "the effect of emotions upon the voice is recognized by all people. Even the most primitive can recognize the tones of love and fear and anger; and this knowledge is shared by the animals. The dog, the horse, and many other animals can understand the meaning of the human voice. The language of the tones is the oldest and most universal of all our means of communication." It appears the time has come for computing machinery to understand it as well [@MarsellaGratch]. This holds true for the entire field of affective computing—Picard's field-coining book by the same name appeared around the same time as SER, describing the broader idea of lending machines emotional intelligence able to recognize human emotion and to synthesize emotion and emotional behavior.
+
+## III. DATA DESCRIPTION
+The RAVDESS (Ryerson Audio-Visual Database of Emotional Speech and Song) dataset [@Ravdess] is a collection of audio-visual recordings of actors expressing a range of emotions through speech and song. The dataset was created by researchers at Ryerson University in Toronto, Canada, and is widely used in the fields of emotion recognition, speech processing, and machine learning.
+
+The RAVDESS dataset consists of 24 professional actors (12 male and 12 female) who were recorded while speaking and singing a set of short phrases in a neutral tone, as well as in various emotional states. The emotional states included in the dataset are anger, boredom, disgust, fear, happiness, sadness, and surprise. The actors were instructed to produce the emotional states in a natural and convincing way, while also maintaining a consistent vocal quality and level of expressiveness across all recordings.
+
+Each actor in the RAVDESS dataset recorded a total of 1440 audio-visual clips, resulting in a total of 34,560 clips in the dataset. The audio recordings are in WAV format and are sampled at 48 kHz with a bit depth of 16. The video recordings are in MP4 format and have a resolution of 1920x1080 pixels. Each clip is labeled with the actor's gender, the emotion being expressed, and a unique identifier.
+
+In addition to the audio-visual recordings, the RAVDESS dataset also includes a set of demographic data for each actor, including their age, ethnicity, and native language. This information can be useful for researchers who are interested in studying the effects of demographic variables on emotion recognition and speech processing.
+
+The RAVDESS dataset has become a popular resource for researchers in the field of emotion recognition, as it provides a large and diverse set of emotional speech and song recordings that can be used to train and evaluate machine learning models. Several studies have used the RAVDESS dataset to develop automated systems for emotion recognition in speech, which have shown promising results in identifying and classifying emotional states.
+
+## IV. EXPLORATORY DATA ANALYSIS
+
+### A. SPECTROGRAMS
+
+A spectrogram is a visual representation of the frequency content of a signal over time. It is created by breaking the signal into small segments and calculating the frequency spectrum of each segment. The resulting frequency spectrum is then displayed as a color-coded plot with time on the horizontal axis, frequency on the vertical axis, and the color representing the intensity or magnitude of the frequency content. Spectrograms are commonly used in audio processing, speech recognition, and acoustic analysis to analyze and visualize the spectral characteristics of signals. They can help identify patterns, anomalies, and trends in the signal and are an important tool in many fields of science and engineering.
+
+::: {#fig-spectrograms layout-nrow=3}
+
+![Anger](./anger.png){#fig-anger}
+
+![Fear](./fear.png){#fig-fear}
+
+![Happy](./happy.png){#fig-happy}
+
+Spectograms of the Audio files for Anger, Fear and Happy
+:::
+
+Based on the spectrograms of the different audio samples of different emotions (see @fig-spectrograms), it is possible to infer certain characteristics of each emotion. For example, samples with positive emotions such as happiness and excitement tend to have higher frequency content, with more energy concentrated in the higher frequency ranges (see @fig-happy). In contrast, samples with negative emotions such as sadness and anger tend to have lower frequency content, with more energy concentrated in the lower frequency ranges (see @fig-anger). Additionally, emotions such as fear and surprise may exhibit sudden changes in the frequency content (see @fig-fear), whereas emotions such as boredom and neutrality may exhibit more stable and uniform frequency patterns. However, it is important to note that the interpretation of spectrograms is subjective and depends on the context and individual perception.
+
+### B. DISTRIBUTION OF EMOTIONS
+
+![Emotion Distribution](./emotion_distribution.png){#fig-emotiondistribution}
+
+The histogram shows the distribution of the counts of unique labels in the Emotion dataset. The x-axis shows the label numbers and the y-axis shows the count of each label. From the histogram, we can see that the dataset is fairly balanced, with each label having a similar count. Labels 0, 2, 3, 5 have slightly higher counts than the other labels, but the difference is not significant. This means that the model trained on this dataset should be able to generalize well to different emotions, as it has a good representation of all the emotions in the dataset.
+
+## V. DATA PREPARATION {#sec-datapreparation}
+
+The process of gathering audio data for use in machine learning applications involves several steps, including collecting audio samples, organizing the data, and extracting audio features. First, audio samples are collected from various sources such as recordings, online databases, or generated audio. The audio files should be saved in a directory structure that reflects their labels or categories. Next, the metadata for the audio files is created using the create_meta_csv function, which creates a CSV file containing the file paths and corresponding labels of each audio file in the dataset directory.
+
+Once the audio samples and metadata are organized, audio features can be extracted from the audio files using the get_audio_features function. This function uses the Librosa library in Python to extract features such as the Mel-frequency cepstral coefficients (MFCCs), pitch, magnitude, and chroma features from the audio signal. The resulting feature vectors are then saved in a Pandas dataframe using the get_features_dataframe function. This function extracts the features for all audio files in the metadata CSV file and stores them in separate dataframes for each type of feature. These dataframes are then concatenated into a single dataframe and combined with a separate dataframe containing the original labels.
+
+Finally, the dataset can be split into training and testing sets using the train_test_split function. This function randomly shuffles the rows of the dataframe and splits it into two separate dataframes: the training set and the testing set. The training set is used to train a machine learning model, while the testing set is used to evaluate the performance of the model on new, unseen data. Overall, this data gathering process involves collecting and organizing audio data, extracting relevant features, and splitting the dataset into training and testing sets for use in machine learning applications.
+
+### Audio Features:
+
+- `Mel Frequency Cepstral Coefficients (MFCC)` : It is a feature extraction technique widely used in speech processing and recognition. It involves extracting the spectral envelope of a speech signal, typically using the Discrete Fourier Transform (DFT), and then mapping it to the mel frequency scale, which better reflects human perception of sound. From this mel-scaled spectrogram, the MFCCs are obtained by taking the logarithm of the power spectrum and performing a discrete cosine transform. The resulting MFCCs capture the most relevant information of the speech signal, such as phonetic content, speaker identity, and emotion. MFCCs are commonly used as inputs to machine learning algorithms for speech recognition and related tasks.
+
+- `Chroma` feature extraction: It is a technique used to represent the harmonic content of an audio signal in a compact manner. Chroma features are based on the pitch class profiles of musical notes, which are invariant to octave transposition and are typically represented using a circular layout called the chroma circle. Chroma features can be computed from the short-term Fourier transform (STFT) of an audio signal, by first mapping the power spectrum to the pitch class domain and then summing the energy of each pitch class over time. The resulting chroma feature matrix can be used as input to machine learning algorithms for tasks such as music genre classification, chord recognition, and melody extraction.
+
+- `Pitch`: It is a perceptual attribute of sound that allows us to distinguish between high and low frequency sounds. It is closely related to the physical property of frequency, which is the number of cycles per second that a sound wave completes. High-pitched sounds have a high frequency, while low-pitched sounds have a low frequency. In music, pitch is used to describe the perceived height or lowness of a musical note. Pitch can be manipulated by altering the frequency of a sound wave using techniques such as tuning or modulation. Pitch perception is an important aspect of human auditory processing and is essential for tasks such as speech recognition and music appreciation.
+
+- `Magnitude`: In signal processing, magnitude refers to the amplitude or strength of a signal, which is a measure of how much energy is contained in the signal. It is typically calculated as the absolute value of a complex number, which is a mathematical representation of a signal that includes both its magnitude and phase. Magnitude can be used to describe various characteristics of a signal, such as its power, energy, or intensity. For example, in the context of audio signal processing, magnitude can be used to represent the loudness or volume of a sound, while in image processing, magnitude can be used to represent the strength of different frequencies in an image.
+
+## VI. CONVOLUTIONAL NEURAL NETWORK
+
+### A. OVERVIEW OF THE MODEL
+
+The next step is to define a 1D convolutional neural network (CNN) model for audio classification tasks. The model takes as input a set of features extracted from audio signals in the form of Mel-frequency cepstral coefficients (MFCCs) and the number of frames. The first layer of the model is a 1D convolutional layer with 256 filters, kernel size 5, and padding same, which is followed by a rectified linear unit (ReLU) activation function. This layer is designed to extract high-level features from the input audio signals.
+
+The next layer is another 1D convolutional layer with 128 filters, kernel size 5, and padding same, followed by a ReLU activation function. This layer further extracts more high-level features from the output of the previous layer. A dropout regularization layer with a dropout rate of 0.1 is added to avoid overfitting.
+
+A max pooling layer with a pool size of 8 is added to reduce the dimensionality of the output and to increase the computational efficiency of the model. Two more 1D convolutional layers with 128 filters, kernel size 5, and padding same, followed by ReLU activation functions are added to extract even more high-level features from the output of the previous layer.
+
+Finally, the output of the convolutional layers is flattened and passed through a dense layer with a number of neurons equal to the number of classes. A softmax activation function is added to output probabilities over the set of classes. The RMSprop optimizer with a learning rate of 0.00001 and decay of 1e-6 is used to train the model. The model is then compiled and fitted on the training data using the specified optimizer and loss function. Overall, this model can be used for audio classification tasks, where the input is a set of features extracted from audio signals and the output is the predicted class of the audio sample. The model summary is as follows:
+
+| Layer (type)               | Output Shape | Param #   |
+| ------------------------- | ------------ | --------- |
+| conv1d_4 (Conv1D)          | (None, 65, 256) | 1536     |
+| activation_5 (Activation)  | (None, 65, 256) | 0        |
+| conv1d_5 (Conv1D)          | (None, 65, 128) | 163968   |
+| activation_6 (Activation)  | (None, 65, 128) | 0        |
+| dropout_1 (Dropout)        | (None, 65, 128) | 0        |
+| max_pooling1d_1 (MaxPooling1D) | (None, 8, 128) | 0     |
+| conv1d_6 (Conv1D)          | (None, 8, 128) | 82048    |
+| activation_7 (Activation)  | (None, 8, 128) | 0        |
+| conv1d_7 (Conv1D)          | (None, 8, 128) | 82048    |
+| activation_8 (Activation)  | (None, 8, 128) | 0        |
+| flatten_1 (Flatten)        | (None, 1024) | 0         |
+| dense_1 (Dense)            | (None, 7)    | 7175      |
+| activation_9 (Activation)  | (None, 7)    | 0         |
+
+### B. VISUALIZING THE LOSS
+
+The model is trained for 370 epochs. The loss on the training and validation sets are plotted in @fig-lossviteration . The loss on the training set decreases with each epoch, while the loss on the validation set decreases until the 150th epoch and then becomes constant.
+
+![Loss v/s Iterations](./loss_vs_iterations.png){#fig-lossviteration}
+
+There could be several reasons why the validation loss plateaus after a certain number of epochs. One possibility is that the model has learned all it can from the available training data and is unable to improve further. Another possibility is that the model is becoming too complex and is starting to memorize the training data instead of learning to generalize to new data.
+
+### C. EVALUATING THE MODEL
+
+After training the model the accuracy is around 65%. The model is then tested on the test set that was created during data preparation (see @sec-datapreparation). There are a total of 25 audio samples that are in our test set and the model predictions of the first 10 samples are as follows:
+
+| actualvalues | predictedvalues |
+|--------------|-----------------|
+| 3            | 5               |
+| 5            | 5               |
+| 1            | 1               |
+| 2            | 2               |
+| 2            | 2               |
+| 3            | 3               |
+| 4            | 4               |
+| 0            | 2               |
+| 0            | 0               |
+| 1            | 2               |
+
+Even though the training accuracy reached upto 65%, the test set accuracy for the first 10 samples reached 70%.
+
+## INSIGHTS
+
+Speech Emotion Recognition (SER) is an area of research that focuses on the automatic detection of human emotions through speech. There are a wide range of potential applications for SER, including mental health diagnosis, customer service, and the development of virtual assistants that can adapt to the emotional states of their users.
+
+One of the key challenges in developing effective SER systems is the complexity of human emotions. Emotions are multifaceted, and can be influenced by a wide range of factors, including culture, personality, and situational context. Additionally, emotions are not always expressed in a clear or consistent manner, which can make it difficult to extract meaningful features from speech signals.
+
+Despite these challenges, there has been significant progress in the field of SER in recent years. Advances in machine learning and deep learning algorithms have made it possible to develop models that can extract more nuanced and complex features from speech signals. Additionally, the availability of large annotated datasets has made it possible to train and evaluate these models at scale.
+
+One of the key applications of SER is in mental health diagnosis. There is growing interest in the use of machine learning algorithms to automatically detect signs of mental health disorders, such as depression and anxiety, through speech. These algorithms can analyze a range of features, including pitch, intensity, and speech rate, to identify patterns that are associated with specific emotional states. This has the potential to improve access to mental health services, particularly in underserved communities where access to mental health professionals may be limited. Another potential application of SER is in customer service. SER models can be used to analyze customer interactions with chatbots or virtual assistants, in order to better understand the emotions and needs of the customer. This can help to improve customer satisfaction and loyalty, as well as enable more personalized and effective interactions.
+
+In order to develop effective SER systems, it is important to have access to high-quality data. This data should be diverse, representing a wide range of emotional states and contexts. Additionally, the data should be annotated with accurate labels that reflect the true emotional states of the speakers. This can be challenging, as emotions are subjective and can be difficult to define or measure in a consistent manner. Finally, it is important to consider the ethical implications of SER. As with any technology that involves the analysis of personal data, there is a risk of misuse or unintended consequences. It is important to consider issues such as privacy, consent, and bias in the development of SER systems, and to ensure that these systems are used in a responsible and ethical manner.
+
+In conclusion, SER is a rapidly evolving field with a wide range of potential applications. While there are significant challenges to be addressed, the development of effective SER systems has the potential to improve access to mental health services, enhance customer experiences, and facilitate more personalized and effective interactions with technology. As the field continues to evolve, it will be important to ensure that these systems are developed and used in a responsible and ethical manner.
